@@ -12,8 +12,8 @@ for proc in psutil.process_iter():
 # Initial the dht device, with data pin connected to digital pin 23:
 sensor = adafruit_dht.DHT11(board.D23)
 
-# Loop forever and print the temperature and humidity
-while True:
+flag = True
+while flag:
     try:
         # Print the values to the serial port
         temp = sensor.temperature
@@ -30,3 +30,4 @@ while True:
         raise error
     # Wait a second before continuing
     time.sleep(2.0)
+    flag = False
